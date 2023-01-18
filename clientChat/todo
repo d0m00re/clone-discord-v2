@@ -1,0 +1,4 @@
+-> manage auto redirection on login routes / or list room
+    -> url de base en fonction de si on est log ou non et que l on se trouve sur la mauvaise url
+
+-> rework model roomItem with less field    
