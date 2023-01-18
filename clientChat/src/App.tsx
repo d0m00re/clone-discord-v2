@@ -13,18 +13,6 @@ import * as reduxActionUser from "./service/redux/user/actions.user";
 import userNa from "./service/networkAdapter/user/user.na";
 import AuthManagement from "./../src/components/features/auth/AuthManagement";
 
-
-
-function ViewUserInfo(props : IUserId) {
-  return (
-    <section>
-      <p>{props.firstname}</p>
-      <p>{props.lastname}</p>
-      <p>{props.id}</p>
-    </section>
-  )
-}
-
 function App() {
   const dispatch = useDispatch();
   const userReducer = useSelector<RootState, IUserId>(state => state.user);
@@ -46,7 +34,6 @@ function App() {
 
   return (
     <div className="App">
-      <ViewUserInfo {...userReducer} />
       {userReducer.id < 0 ?
         <AuthManagement />
         :

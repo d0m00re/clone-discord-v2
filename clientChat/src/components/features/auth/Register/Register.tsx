@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import userService from "./../../../../service/networkAdapter/user/user.na";
 import toast from 'react-hot-toast';
-
+import Input from "./../../../atoms/Input/Input";
 type FormValues = {
     firstname: string;
     lastname: string;
@@ -24,21 +24,20 @@ const Register = () => {
 
     return (
         <section>
-            <h1>register</h1>
             <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <input {...register("firstname")} placeholder="Firstname" />
+                <Input {...register("firstname")} placeholder="Firstname" />
                 {errors?.firstname && <p>{errors.firstname.message}</p>}
 
-                <input {...register("lastname")} placeholder="Lastname" />
+                <Input {...register("lastname")} placeholder="Lastname" />
                 {errors?.lastname && <p>{errors.lastname.message}</p>}
 
-                <input {...register("email")} type="email" placeholder="Email" />
+                <Input {...register("email")} type="email" placeholder="Email" />
                 {errors?.email && <p>{errors.email.message}</p>}
 
-                <input {...register("password")} type="password" placeholder="Password" />
+                <Input {...register("password")} type="password" placeholder="Password" />
                 {errors?.password && <p>{errors.password.message}</p>}
 
-                <input type="submit" />
+                <Input type="submit" />
             </form>
         </section>
     );

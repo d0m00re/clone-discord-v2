@@ -15,56 +15,96 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+/*! Typebase.less v0.1.0 | MIT License */
+/* Setup */
+html {
+  /* Change default typefaces here */
+  font-family: serif;
+  font-size: 137.5%;
+  -webkit-font-smoothing: antialiased;
 }
-a:hover {
-  color: #535bf2;
+/* Copy & Lists */
+p {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
 }
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+ul,
+ol {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
-
+ul li,
+ol li {
+  line-height: 1.5rem;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+blockquote {
+  line-height: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Change heading typefaces here */
+  font-family: sans-serif;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  line-height: 1.5rem;
+}
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 4.242rem;
+  line-height: 4.5rem;
+  margin-top: 0;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+h2 {
+  font-size: 2.828rem;
+  line-height: 3rem;
+  margin-top: 3rem;
 }
-button:hover {
-  border-color: #646cff;
+h3 {
+  font-size: 1.414rem;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+h4 {
+  font-size: 0.707rem;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h5 {
+  font-size: 0.4713333333333333rem;
+}
+h6 {
+  font-size: 0.3535rem;
+}
+/* Tables */
+table {
+  margin-top: 1.5rem;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  padding: 0;
+  line-height: 33px;
+}
+/* Code blocks */
+code {
+  vertical-align: bottom;
+}
+/* Leading paragraph text */
+.lead {
+  font-size: 1.414rem;
+}
+/* Hug the block above you */
+.hug {
+  margin-top: 0;
 }

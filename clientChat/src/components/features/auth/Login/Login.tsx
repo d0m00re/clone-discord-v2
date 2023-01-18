@@ -3,6 +3,9 @@ import userService from "./../../../../service/networkAdapter/user/user.na";
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import * as reduxActionUser from "./../../../../service/redux/user/actions.user";
+import Input from "./../../../atoms/Input/Input";
+
+
 type FormValues = {
     email: string;
     password: string;
@@ -25,15 +28,14 @@ const Login = () => {
     });
     return (
         <section>
-            <h1>login</h1>
             <form onSubmit={onSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                <input {...register("email")} type="email" placeholder="Luo" />
+                <Input {...register("email")} type="email" placeholder="Luo" />
                 {errors?.email && <p>{errors.email.message}</p>}
 
-                <input {...register("password")} type="password" placeholder="Password" />
+                <Input {...register("password")} type="password" placeholder="Password" />
                 {errors?.password && <p>{errors.password.message}</p>}
 
-                <input type="submit" />
+                <Input type="submit" />
             </form>
         </section>
     );
