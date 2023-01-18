@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import userCrud from "../dao/sequelize/user.crud";
-import entitiesUser from "../entity/entities";
 import * as sBCrypt from "./../../../Service/bcrypt";
 import jwt from 'jsonwebtoken';
 

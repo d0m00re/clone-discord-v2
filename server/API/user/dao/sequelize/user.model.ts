@@ -1,13 +1,6 @@
 import { sequelize } from "./../../../../Service/db/sequelize/init.sequelize";
 import * as entities from "./../../entity/entities";
-import { Optional, Model, HasMany, UUIDV4, DataTypes } from 'sequelize';
-
-/*
-interface PersonCreationAttributes extends Optional<PersonAttributes, 'id'> {}
-
-@Table
-class Person extends Model<PersonAttributes, PersonCreationAttributes> {}
-*/
+import { Optional, Model, UUIDV4, DataTypes } from 'sequelize';
 
 interface UserCreationAttributes extends Optional<entities.IUserId, 'id'> { }
 
