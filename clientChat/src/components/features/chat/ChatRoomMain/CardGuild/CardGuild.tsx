@@ -30,7 +30,6 @@ function CardGuild(props: Props) {
       style={{"backgroundColor" : (style.backgroundColor),
               "borderRadius" : "8px"}}
     >
-        <p style={{"color" : style.color}} >{props.name}</p>
         <Img
             width="60px"
             height='60px'

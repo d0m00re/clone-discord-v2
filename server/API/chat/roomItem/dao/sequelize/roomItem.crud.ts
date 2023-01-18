@@ -27,6 +27,8 @@ class RoomItem {
     }
 
     findAll(props: IRoomItemDB) {
+        console.log("findAll")
+        console.log(props.where)
         return modelRoomItem.findAll({ where: props.where });
     }
 

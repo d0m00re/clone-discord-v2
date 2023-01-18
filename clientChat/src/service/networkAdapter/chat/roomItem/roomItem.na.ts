@@ -6,7 +6,7 @@ const createOne = (roomItem: entitiesRoomItem.IRoomItemCreate) => {
 }
 
 const getAll = (idRoom : number) => {
-  return http.get(`/chat/roomItem?id=${idRoom}`);
+  return http.get(`/chat/roomItem?RoomId=${idRoom}`);
 }
 
 const RoomItemServiceApi = {
