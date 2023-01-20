@@ -15,8 +15,6 @@ const fetchData = (idRoom : number, setData : any) => {
   })
 }
 
-
-
 function RoomView(props: Props) {
   const [listMsg, setListMsg] = useState<naRoomItemEntities.IRoomItemId[]>([]);
   const [msg, setMsg] = useState("");

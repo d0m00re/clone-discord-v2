@@ -35,6 +35,7 @@ function CardGuild(props: Props) {
             height='60px'
             borderRadius='50%'
             src={`https://source.unsplash.com/random/200x200?timestamp=${props.uuid}`}/>
+        
     </section>
     {props.isSelect &&
       <section>

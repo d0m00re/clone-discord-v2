@@ -45,7 +45,6 @@ function ListRoom(props: Props) {
 
     return (
         <section>
-            <div>ListRoom {props.uuid}</div>
             {
                 listRoom.map((elem, id) => {
                     let customCss = style[(id === roomSelect) ? 'select' : 'base'];

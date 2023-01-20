@@ -25,7 +25,6 @@ const ChatRoomMain = () => {
 
     return (
         <section>
-            <h1> chat room main</h1>
             <Flex flexDirection="column" gap = "32px">
             {
                 listGuild.map(elem => <CardGuild
