@@ -27,7 +27,7 @@ const ChatRoomMain = () => {
             })
             .catch(err => {
                 alert("error retrieve guild")
-            })
+            });
     }
 
     const fetchDataRoom = (setState: any, uuid: string) => {

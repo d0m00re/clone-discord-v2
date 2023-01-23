@@ -54,20 +54,14 @@ function CardGuild(props: Props) {
       onClick={props.onClick}
       isSelect={props.isSelect}
     >
-      <div />
-      <Img
+      <div></div>
+      <Img 
         width="50px"
         height='50px'
         borderRadius='50%'
         src={props.srcImg ?? `https://source.unsplash.com/random/200x200?timestamp=${props.uuid}`} />
-
-      {/*props.isSelect &&
-      <section>
-        <ListRoom uuid={props.uuid} id={props.id}/>
-      </section>
-  */}
     </CustomFlex>
   )
 }
-
+export {CustomFlex};
 export default CardGuild;

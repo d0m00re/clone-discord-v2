@@ -5,6 +5,7 @@ import Flex from "./../../../atoms/Flex";
 import ModalCreateGuild from "../ModalCreateGuild/ModalCreateGuild";
 import Img from "./../../../atoms/Img/Img";
 import AssetPlus from "./../../../../assets/plus.png"
+import { CustomFlex } from "./../../chat/ChatRoomMain/CardGuild/CardGuild";
 interface INavbarGuild {
     setListGuild: React.Dispatch<React.SetStateAction<guildType.IGuildId[]>>;
     listGuild: guildType.IGuildId[];
@@ -30,16 +31,21 @@ const NavbarGuild = (props: INavbarGuild) => {
                         isSelect={props.guildSelect === elem.uuid}
                     />)
                 }
-                <Flex cursor="pointer">
-                    <Img
-                        width="50px"
-                        height="50px"
-                        src={AssetPlus} onClick={revStateModalCreateGuild}
-                    />
-                </Flex>
+                <CustomFlex
+                    onClick={() => { }}
+                    isSelect={false}
+                >
+                    <div />
+                         <Img
+                            width="50px"
+                            height="50px"
+                            src={AssetPlus} onClick={revStateModalCreateGuild}
+                        />
+                 </CustomFlex>
             </Flex>
 
             {modalCreateGuild &&
+
                 <ModalCreateGuild
                     onRevStateModal={revStateModalCreateGuild}
                     isModalOpen={modalCreateGuild}
