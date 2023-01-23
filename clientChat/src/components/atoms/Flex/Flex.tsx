@@ -16,6 +16,7 @@ interface IFlex {
 
     padding ?: string;
     margin ?: string;
+    cursor ?: string;
 }
 //    ${({ cursor }) => cursor && `cursor : ${cursor};`}
 
@@ -33,6 +34,7 @@ const Flex = styled.div<IFlex>`
     ${({ padding }) => padding && `padding : ${padding};`};
     ${({ margin }) => margin && `margin : ${margin};`};
 
+    ${({ cursor }) => cursor && `cursor : ${cursor};`};
 
 `;
 
