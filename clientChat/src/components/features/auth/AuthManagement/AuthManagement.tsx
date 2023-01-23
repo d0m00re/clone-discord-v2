@@ -6,6 +6,9 @@ import styled from "styled-components";
 type TAuthScreen = 'register' | 'login';
 
 const MainLayer = styled.section`
+  top: 0;
+  left : 0;
+  
   display : flex;
   justify-content: center;
   align-items: center;

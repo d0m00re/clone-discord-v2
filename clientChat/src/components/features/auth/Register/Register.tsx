@@ -12,7 +12,6 @@ type FormValues = {
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
     const onSubmit = handleSubmit((data) => {
-        alert(JSON.stringify(data));
         userService.register(data)
             .then(resp => {
                 toast("success")

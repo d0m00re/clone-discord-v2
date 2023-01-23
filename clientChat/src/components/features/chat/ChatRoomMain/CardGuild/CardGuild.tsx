@@ -1,48 +1,72 @@
 import Img from "../../../../atoms/Img/Img";
 import Flex from "./../../../../atoms/Flex";
 import ListRoom from "./../ListRoom";
+import styled from "styled-components";
 
 type Props = {
-    name : string;
-    uuid : string;
-    id : number;
-    isSelect : boolean;
-    onClick : () => void;
+  name: string;
+  uuid: string;
+  srcImg ?: string;
+  id: number;
+  isSelect: boolean;
+  onClick: () => void;
 }
 
-const styleCard = {
-  unselected : {
-    backgroundColor : "white",
-    color : "black"
-  },
-  selected : {
-    backgroundColor : "blue",
-    color : "white"
-  }
+interface ICustomFlex {
+  isSelect : boolean;
 }
+
+const CustomFlex = styled.section<ICustomFlex>`
+  display : flex;
+  align-items : center;
+  gap : 10px;
+
+  padding : 0 10px 0 0;
+  img {
+    border-radius : 50%;
+    transition: all 200ms ease-in-out;
+  }
+  div {
+    height : 10px;
+    width : 5px;
+    background-color: white;
+    border-radius: 0 50% 50% 0;
+    transition: all 200ms ease-in-out;
+  }
+  &:hover {
+    img {
+      border-radius: 12px;
+    }
+    div {
+    height : 30%;
+    width : 5px;
+    background-color: white;
+    border-radius: 0 50% 50% 0;
+  }
+  }
+  ${({ isSelect }) => isSelect && `div {height : 100% !important}`};
+`;
+
 
 function CardGuild(props: Props) {
-  const style = styleCard[(props.isSelect) ? 'selected' : "unselected"];
   return (
-    <Flex>
-    <section
+    <CustomFlex
       onClick={props.onClick}
-      style={{"backgroundColor" : (style.backgroundColor),
-              "borderRadius" : "8px"}}
+      isSelect={props.isSelect}
     >
-        <Img
-            width="60px"
-            height='60px'
-            borderRadius='50%'
-            src={`https://source.unsplash.com/random/200x200?timestamp=${props.uuid}`}/>
-        
-    </section>
-    {props.isSelect &&
+      <div />
+      <Img
+        width="50px"
+        height='50px'
+        borderRadius='50%'
+        src={props.srcImg ?? `https://source.unsplash.com/random/200x200?timestamp=${props.uuid}`} />
+
+      {/*props.isSelect &&
       <section>
         <ListRoom uuid={props.uuid} id={props.id}/>
       </section>
-    }
-    </Flex>
+  */}
+    </CustomFlex>
   )
 }
 

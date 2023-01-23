@@ -33,14 +33,11 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" style={{width : "100%", height : "100%"}}>
       {userReducer.id < 0 ?
         <AuthManagement />
         :
-        <>
-        <Button onClick={logout}>logout</Button>
-        <Feature.Chat.ChatRoomMain />
-        </> 
+         <Feature.Chat.ChatRoomMain />
       }
       <Toaster />
     </div>

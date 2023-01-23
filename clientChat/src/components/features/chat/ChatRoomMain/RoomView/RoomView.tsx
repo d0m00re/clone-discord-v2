@@ -1,55 +1,68 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import naRoomItem from "./../../../../../service/networkAdapter/chat/roomItem/roomItem.na";
 import * as naRoomItemEntities from "./../../../../../service/networkAdapter/chat/roomItem/roomItem.entities";
+import Flex from "./../../../../atoms/Flex/Flex";
+import Img from "../../../../atoms/Img/Img";
+
 type Props = {
-    idRoom : number;
+  idRoom: number;
 }
 
-const fetchData = (idRoom : number, setData : any) => {
+const fetchData = (idRoom: number, setData: any) => {
   naRoomItem.getAll(idRoom)
-  .then(resp => {
-    setData(resp.data.data);
-  })
-  .catch(err => {
+    .then(resp => {
+      setData(resp.data.data);
+    })
+    .catch(err => {
 
-  })
+    })
 }
 
 function RoomView(props: Props) {
   const [listMsg, setListMsg] = useState<naRoomItemEntities.IRoomItemId[]>([]);
   const [msg, setMsg] = useState("");
-  
+
   useEffect(() => {
     fetchData(props.idRoom, setListMsg);
-  }, []);
+  }, [props.idRoom]);
 
-  const addMessage = (props : naRoomItemEntities.IRoomItem) => {
+  const addMessage = (props: naRoomItemEntities.IRoomItem) => {
     naRoomItem.createOne({
       RoomId: props.RoomId,
       contentType: 'msg',
       content: props.content
     })
-    .then(resp => {
-      console.log([...listMsg, resp.data.data]);
-      setListMsg([...listMsg, resp.data.data]);
-    })
-    .catch(err => {})
+      .then(resp => {
+        console.log([...listMsg, resp.data.data]);
+        setListMsg([...listMsg, resp.data.data]);
+      })
+      .catch(err => { })
   }
-  
+
   return (
-    <section>
+    <section style={{ width: "100%" }}>
       RoomView : {props.idRoom}
       {
-        listMsg.map(elem => <p key={elem.id}>{elem.content}</p>)
+        listMsg.map(elem =>
+          <Flex gap="10px">
+            <Img
+              width="50px"
+              height='50px'
+              borderRadius='50%'
+              src={`https://images.hdqwalls.com/wallpapers/pickle-rick-s0.jpg`}
+            />
+            <p key={elem.id}>{elem.content}</p>
+          </Flex>
+        )
       }
-      <input type="text" value={msg} onChange={(e) => setMsg(e.target.value)}/>
-      <button onClick={() => 
-      // @ts-ignore
-      addMessage({
-        RoomId: props.idRoom,
-        contentType: 'msg',
-        content: msg
-      })}>valider</button>
+      <input type="text" value={msg} onChange={(e) => setMsg(e.target.value)} />
+      <button onClick={() =>
+        // @ts-ignore
+        addMessage({
+          RoomId: props.idRoom,
+          contentType: 'msg',
+          content: msg
+        })}>valider</button>
     </section>
   )
 }

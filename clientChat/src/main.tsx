@@ -16,26 +16,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-const router = createBrowserRouter([
-  {
-    path: routerInfo.home.path,
-    element: <div>Mon clone discord</div>,
-  },
-  {
-    path: routerInfo.auth.path,
-    element: <AuthManagement />
-  },
-  {
-    path: routerInfo.guildList.path,
-    element: <Feature.Chat.ChatRoomMain />
-  }
-]);
+
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 )
