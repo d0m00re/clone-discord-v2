@@ -42,6 +42,7 @@ function RoomView(props: Props) {
   return (
     <section style={{ width: "100%" }}>
       RoomView : {props.idRoom}
+      <Flex flexDirection='column' gap='25px'>
       {
         listMsg.map(elem =>
           <Flex gap="10px">
@@ -51,10 +52,14 @@ function RoomView(props: Props) {
               borderRadius='50%'
               src={`https://images.hdqwalls.com/wallpapers/pickle-rick-s0.jpg`}
             />
-            <p key={elem.id}>{elem.content}</p>
+            <Flex flexDirection='column' gap = "5px">
+              <p style={{margin : "0"}}><strong>jack lapiquette</strong></p>
+              <p style={{margin : "0"}} key={elem.id}>{elem.content}</p>
+            </Flex>
           </Flex>
         )
       }
+      </Flex>
       <input type="text" value={msg} onChange={(e) => setMsg(e.target.value)} />
       <button onClick={() =>
         // @ts-ignore

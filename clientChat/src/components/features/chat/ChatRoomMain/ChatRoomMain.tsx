@@ -54,16 +54,29 @@ const ChatRoomMain = () => {
         }
     }, [guildSelect])
 
+    //alert(guildSelect)
+    let id : number = listGuild.findIndex(elem => elem.uuid === guildSelect);
+    if(id !== -1) {
+       // alert(id)
+        id = listGuild[id].id ?? -1;
+    }
 
     return (
         <Flex flexDirection={"row"} justifyContent={"flex-start"} height={"100vh"}>
             <NavbarGuild
+                setListGuild={setListGuild}
                 listGuild={listGuild}
                 setGuildSelect={setGuildSelect}
                 guildSelect={guildSelect ?? ""}
             />
-            <NavbarRoomList listRoom={listRoom} roomSelect={roomSelect} setRoomSelect={setRoomSelect} />
-            {roomSelect > -1 &&
+            <NavbarRoomList
+                listRoom={listRoom}
+                roomSelect={roomSelect}
+                setRoomSelect={setRoomSelect}
+                setListRoom={setListRoom}
+                guildRoomId={id}
+            />
+            {roomSelect > -1 && 
                 <RoomView idRoom={listRoom[roomSelect].id} />
             }
         </Flex>
