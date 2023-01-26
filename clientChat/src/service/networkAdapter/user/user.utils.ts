@@ -1,19 +1,18 @@
 import * as userEntities from "./user.entities";
 
 export const makeEmptyUserInput = (): userEntities.IUserInput => ({
-    email: "",
-    password: "",
-    firstname: "",
-    lastname: ""
-})
+  email: "",
+  password: "",
+  firstname: "",
+  lastname: "",
+});
 
 export const makeEmptyUserOutput = (): userEntities.IUserOutput => ({
-    ...makeEmptyUserInput(),
-    uuid: ""
-})
+  ...makeEmptyUserInput(),
+  uuid: "",
+});
 
 export const makeEmptyUserId = () => ({
-    ...makeEmptyUserOutput(),
-    id: -2
-})
-
+  ...makeEmptyUserOutput(),
+  id: -2,
+});

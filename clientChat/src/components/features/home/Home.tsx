@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Home() {
-  return (
-    <div>Mon super chat multyroom</div>
-  )
+  return <div>Mon super chat multyroom</div>;
 }
 
-export default Home
+export default Home;

@@ -21,4 +21,7 @@ router.post('/',
     mdwJoi.joiSchemaBodyValidation(schemaGuild.createOneSchema),
     controllerGuild.createOne);
 
+router.get('/dump',
+    controllerGuild.getAllDump)
+
 export default router;

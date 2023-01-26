@@ -1,8 +1,8 @@
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-    margin : 10px;
+  margin: 10px;
 `;
 
 export default Button;

@@ -1,4 +1,7 @@
 import modelGuild from "./guild.model";
+import modelRoom from "./../../../room/dao/sequelize/room.model";
+import modelRoomItem from "./../../../roomItem/dao/sequelize/roomItem.model";
+
 import * as entityGuild from "./../../entity/entities"
 import { v4 as uuidv4 } from 'uuid';
 import { WhereOptions, IncludeOptions, FindAttributeOptions } from "sequelize";
@@ -26,6 +29,20 @@ class Guild {
 
     findAll(props: IGuildDB) {
         return modelGuild.findAll({ where: props.where });
+    }
+
+    findAllWithJoin() {
+        return modelGuild.findAll({
+            include: [
+                {
+                    model: modelRoom,
+                   // as: 'rooms',
+                    include: [{
+                        model : modelRoomItem,
+                     //   as : "roomItems"
+                    }]
+                }]
+            });
     }
 
     async deleteOne(id: number) {

@@ -9,11 +9,9 @@ interface IGuild {
 */
 
 const makeEmptyGuild = (): entities.IGuild => ({
-    title: "",
-    uuid: "",
-    ownerId: -1
+  title: "",
+  uuid: "",
+  ownerId: -1,
 });
 
-export {
-    makeEmptyGuild
-}
+export { makeEmptyGuild };

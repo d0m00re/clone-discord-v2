@@ -1,1 +1,1 @@
-export {default as CardRoom} from './CardGuild';
+export { default as CardRoom } from "./CardGuild";

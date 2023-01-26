@@ -1,1 +1,1 @@
-export {default as ModalCreateGuild} from './ModalCreateGuild';
+export { default as ModalCreateGuild } from "./ModalCreateGuild";
