@@ -14,6 +14,11 @@ interface IGuildDB {
     updateData?: entityGuild.IGuildId;
 }
 
+// include base info
+const attributeGuild = ["id", "title", "uuid", "ownerId"];
+const attributeModelRoom = ['id', 'uuid', 'ownerId', 'GuildId'];
+const attributeModelRoomItems = ['id', 'uuid', 'contentType', 'content', 'ownerId', 'RoomId'];
+
 class Guild {
     createOne(props: Omit<entityGuild.IGuild, 'uuid'>) {
         return modelGuild.create({
@@ -33,12 +38,15 @@ class Guild {
 
     findAllWithJoin() {
         return modelGuild.findAll({
+            attributes : attributeGuild,
             include: [
                 {
                     model: modelRoom,
+                    attributes : attributeModelRoom,
                    // as: 'rooms',
                     include: [{
                         model : modelRoomItem,
+                        attributes : attributeModelRoomItems
                      //   as : "roomItems"
                     }]
                 }]

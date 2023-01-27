@@ -12,6 +12,7 @@ import { IUserId } from "./service/networkAdapter/user/user.entities";
 import * as reduxActionUser from "./service/redux/user/actions.user";
 import userNa from "./service/networkAdapter/user/user.na";
 import AuthManagement from "./../src/components/features/auth/AuthManagement";
+import populateAll from "./service/redux/chat/populate.chat";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,13 @@ function App() {
 
   useEffect(() => {
     populateUser(dispatch);
+   // populateAll(dispatch);
   }, []);
+
+  useEffect(() => {
+    if (userReducer.id > 0)
+      populateAll(dispatch);
+  }, [userReducer])
 
   const logout = () => {
     userNa

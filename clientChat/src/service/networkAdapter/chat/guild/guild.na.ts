@@ -9,9 +9,14 @@ const getAll = () => {
   return http.get("/chat/guild");
 };
 
+const getAllDump = () => {
+  return http.get("/chat/guild/dump")
+}
+
 const UserServiceApi = {
   createOne,
   getAll,
+  getAllDump
 };
 
 export default UserServiceApi;

@@ -3,9 +3,11 @@ import { combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import UserReducer from "./user/reducer.user";
+import ChatReducer from "./chat/reducer.chat";
 
 export const defaultState = {
   user: UserReducer,
+  chat : ChatReducer
 };
 
 export const reducers = combineReducers(defaultState);
