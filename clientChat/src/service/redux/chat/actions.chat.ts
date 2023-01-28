@@ -1,5 +1,5 @@
 import * as contants from "./constants.chat";
-
+import * as entityChat from "./../../networkAdapter/chat/chat.entities";
 /*
 export {
     SET_ALL_ELEM,
@@ -9,7 +9,7 @@ export {
 }
 */
 
-export const setAllElem = (payload :any) => {
+export const setAllElem = (payload : entityChat.IGuildWtJoin) => {
     return {
       type: contants.SET_ALL_ELEM,
       payload: payload,
@@ -22,7 +22,7 @@ export const setAllElem = (payload :any) => {
       payload: payload,
     };
   };
-  export const setAllRoom = (payload :any) => {
+  export const setAllRoom = (payload : entityChat.entityRoom.IRoomId[]) => {
     return {
       type: contants.SET_ALL_ROOM,
       payload: payload,

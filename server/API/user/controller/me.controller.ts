@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import sendResponse from "../../../Service/express/sendResponse";
 import userCrud from "../dao/sequelize/user.crud";
 
 const me = async (req: Request, res: Response) => {
@@ -13,11 +14,26 @@ const me = async (req: Request, res: Response) => {
         });
 
         if (!data)
-            return res.status(404).send({ msg: "user not found", success: false });
-        return res.status(200).send({ data: data, success: true, msg: "success" });
+            return sendResponse({
+                res,
+                status: 404,
+                data: {},
+                msg: "error"
+            });
+        return sendResponse({
+            res,
+            status: 200,
+            data: data,
+            msg: "success"
+        });
     }
     catch (err) {
-        return res.status(404).send({ msg: "could not create this routes", success: false });
+        return sendResponse({
+            res,
+            status : 404,
+            data: {},
+            msg: "error"
+        });
     }
 };
 

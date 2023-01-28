@@ -24,9 +24,9 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (userReducer.id > 0)
+   // if (userReducer.id > 0)
       populateAll(dispatch);
-  }, [userReducer])
+  }, []);//[userReducer])
 
   const logout = () => {
     userNa

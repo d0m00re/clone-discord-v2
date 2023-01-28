@@ -1,20 +1,31 @@
 import { Request, Response } from "express";
 import dbGuild from "./../dao/sequelize/guild.crud";
+import sendResponse from '../../../../Service/express/sendResponse';
+
 
 const createOne = async (req: Request, res: Response) => {
     const body = req.body;
 
     try {
-        console.log(" res locals")
-        console.log(res.locals)
         let data = await dbGuild.createOne({
             ownerId: res.locals.id,//body.ownerId,
             title: body.title,
         });
-        res.status(200).send({ data: data, success: true, msg: "success" });
+
+        return sendResponse({
+            res,
+            status : 200,
+            data,
+            msg : "success create data"
+        });
     }
     catch (err) {
-        res.status(404).send({ msg: "could not create this routes", success: false });
+        return sendResponse({
+            res,
+            data : {},
+            status : 404,
+            msg : "error creer"
+        })
     }
 };
 

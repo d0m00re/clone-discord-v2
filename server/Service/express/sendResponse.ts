@@ -1,13 +1,31 @@
+import {Response} from "express";
+
 // Send json response
-const sendResponse = (res: any, statut: number, data: any, msg: any, success: boolean, code: string = "0x42") => {
-  return res.status(statut)
-    .send({
-      statut: statut,
-      res: msg,
-      success: success,
-      data: data,
-      code: code
-    });
+
+interface ISendResponse {
+  data : any;
+  code ?: string;
+  msg : string;
+  errors ?: any[];
+}
+
+interface ISendResponseProps extends ISendResponse {
+  res : Response;
+  status : number;
+}
+
+const sendResponse = (props : ISendResponseProps) => {
+  const dataSendResponse : ISendResponse = {
+    data: props.data,
+    code: props.code,
+    msg : props.msg
+  }
+
+  if (props.errors)
+    dataSendResponse.errors = props.errors;
+
+  return props.res.status(props.status)
+    .send(dataSendResponse);
 };
 
 export default sendResponse;

@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import dbUser from "./../dao/sequelize/user.crud";
 import * as sBCrypt from "./../../../Service/bcrypt";
+import sendResponse from "../../../Service/express/sendResponse";
 const register = async (req: Request, res: Response) => {
     const body = req.body;
 
@@ -13,10 +14,20 @@ const register = async (req: Request, res: Response) => {
             firstname: body.firstname,
             lastname: body.lastname
         });
-        res.status(200).send({ data: data, success: true, msg: "success" });
+        return sendResponse({
+            res,
+            status: 200,
+            data: data,
+            msg: "success"
+        });
     }
     catch (err) {
-        res.status(404).send({ msg: "could not create this routes", success: false });
+        return sendResponse({
+            res,
+            status: 404,
+            data: {},
+            msg: "error"
+        });
     }
 };
 

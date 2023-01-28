@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import sendResponse from "../../../../Service/express/sendResponse";
 import roomCrud from "../dao/sequelize/room.crud";
 
 const getAll = async (req: Request, res: Response) => {
@@ -6,11 +7,19 @@ const getAll = async (req: Request, res: Response) => {
         const query = req.query;
         console.log({ where: query })
         let data = await roomCrud.findAll({ where: query });
-        res.status(200).send({ data: data, success: true, msg: "success" });
-    }
+        return sendResponse({
+            res,
+            status : 200,
+            data: data,
+            msg: "success"
+        });    }
     catch (err) {
-        res.status(404).send({ msg: "could not create this routes", success: false });
-    }
+        return sendResponse({
+            res,
+            status : 404,
+            data: {},
+            msg: "error"
+        });    }
 };
 
 export default getAll;

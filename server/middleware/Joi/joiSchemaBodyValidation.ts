@@ -9,8 +9,14 @@ const joiSchemaBodyValidation = (schema: any) => {
       next();
     } else {
       const { details } = error;
-      const message = details.map((i: any) => i.message).join(',');
-      sendResponse(res, 422, details, message, false);
+      const errors = details.map((i: any) => i.message).join(',');
+      return sendResponse({
+        res,
+        status : 422,
+        data : {},
+        msg : "error create",
+        errors : errors
+        });
     }
   }
 }

@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import dbRoom from "./../dao/sequelize/roomItem.crud";
-
+import sendResponse from "../../../../Service/express/sendResponse";
 const createOne = async (req: Request, res: Response) => {
     const body = req.body;
 
@@ -13,11 +13,20 @@ const createOne = async (req: Request, res: Response) => {
             contentType: body.contentType,
             content: body.content
         });
-        res.status(200).send({ data: data, success: true, msg: "success" });
+        return sendResponse({
+            res,
+            status : 200,
+            data: data,
+            msg: "success"
+        });
     }
     catch (err) {
-        res.status(404).send({ msg: "could not create this routes", success: false });
-    }
+        return sendResponse({
+            res,
+            status : 404,
+            data: {},
+            msg: "error"
+        });    }
 };
 
 export default createOne;
