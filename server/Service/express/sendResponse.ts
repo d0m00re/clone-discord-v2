@@ -14,12 +14,18 @@ interface ISendResponseProps extends ISendResponse {
   status : number;
 }
 
+// later : improve that
+const sendResponseLog = (res : Response, status : number) => {
+  let msg = (status > 399) ? "error" : "success";
+}
+
 const sendResponse = (props : ISendResponseProps) => {
   const dataSendResponse : ISendResponse = {
     data: props.data,
     code: props.code,
     msg : props.msg
   }
+  sendResponseLog(props.res, props.status)
 
   if (props.errors)
     dataSendResponse.errors = props.errors;

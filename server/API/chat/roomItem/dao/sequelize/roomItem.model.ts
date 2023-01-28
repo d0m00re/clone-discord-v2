@@ -28,7 +28,7 @@ RoomItem.init({
         primaryKey: true
     },
     uuid: {
-        type: DataTypes.TEXT,
+        type: DataTypes.UUIDV4,
         defaultValue: UUIDV4
     },
     contentType: {

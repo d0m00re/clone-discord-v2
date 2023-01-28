@@ -30,7 +30,7 @@ Room.init({
         type: DataTypes.TEXT
     },
     uuid: {
-        type: DataTypes.TEXT,
+        type: DataTypes.UUIDV4,
         defaultValue: UUIDV4
     },
     ownerId: {
