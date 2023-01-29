@@ -16,7 +16,7 @@ export const setAllElem = (payload : entityChat.IGuildWtJoin) => {
     };
   };
 
-  export const setAllGuild = (payload :any) => {
+  export const setAllGuild = (payload : entityChat.entityGuild.IGuildId) => {
     return {
       type: contants.SET_ALL_GUILD,
       payload: payload,
@@ -28,7 +28,7 @@ export const setAllElem = (payload : entityChat.IGuildWtJoin) => {
       payload: payload,
     };
   };
-  export const setAllRoomItems = (payload :any) => {
+  export const setAllRoomItems = (payload : entityChat.entityItems.IRoomItemId) => {
     return {
       type: contants.SET_ALL_ROOM_ITEMS,
       payload: payload,
