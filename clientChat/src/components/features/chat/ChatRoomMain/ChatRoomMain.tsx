@@ -12,12 +12,17 @@ import NavbarGuild from "../NavbarGuild/NavbarGuild";
 import NavbarRoomList from "../NavbarRoomList/NavbarRoomList";
 import * as naEntities from "./../../../../service/networkAdapter/chat/room/room.entities";
 import RoomView from "./RoomView";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "./../../../../service/redux/redux";
+import {IGuildWtJoin} from "./../../../../service/networkAdapter/chat/chat.entities";
 const ChatRoomMain = () => {
   const [listGuild, setListGuild] = useState<guildType.IGuildId[]>([]);
   const [guildSelect, setGuildSelect] = useState<string | null>(null);
 
   const [listRoom, setListRoom] = useState<naEntities.IRoomId[]>([]);
   const [roomSelect, setRoomSelect] = useState<number>(-1);
+
+  const guildList = useSelector<RootState, IGuildWtJoin[]>((state) => state.chat);
 
   const fetchDataGuild = () => {
     guildNa

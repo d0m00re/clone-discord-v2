@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import * as Feature from "./components/features";
 import toast, { Toaster } from "react-hot-toast";
-import Flex from "./components/atoms/Flex";
-import Button from "./components/atoms/Button";
 import populateUser from "./service/redux/user/populate.user";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -42,7 +40,9 @@ function App() {
 
   return (
     <div className="App" style={{ width: "100%", height: "100%" }}>
-      {userReducer.id < 0 ? <AuthManagement /> : <Feature.Chat.ChatRoomMain />}
+      {userReducer.id < 0 ?
+        <AuthManagement /> :
+        <Feature.Chat.ChatRoomMain />}
       <Toaster />
     </div>
   );
