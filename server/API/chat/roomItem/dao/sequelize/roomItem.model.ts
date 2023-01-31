@@ -1,6 +1,6 @@
 import { sequelize } from "./../../../../../Service/db/sequelize/init.sequelize";
 import * as entities from "./../../entity/entities";
-import { Optional, Model, HasMany, UUIDV4, DataTypes } from 'sequelize';
+import { Optional, Model, HasMany, UUID, DataTypes } from 'sequelize';
 import RoomModel from "./../../../room/dao/sequelize/room.model";
 /*
 interface PersonCreationAttributes extends Optional<PersonAttributes, 'id'> {}
@@ -28,8 +28,8 @@ RoomItem.init({
         primaryKey: true
     },
     uuid: {
-        type: DataTypes.UUIDV4,
-        defaultValue: UUIDV4
+        type: DataTypes.UUID,
+        defaultValue: UUID
     },
     contentType: {
         type: DataTypes.TEXT

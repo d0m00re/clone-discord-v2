@@ -1,6 +1,6 @@
 import { sequelize } from "./../../../../Service/db/sequelize/init.sequelize";
 import * as entities from "./../../entity/entities";
-import { Optional, Model, UUIDV4, DataTypes } from 'sequelize';
+import { Optional, Model, UUID, DataTypes } from 'sequelize';
 
 interface UserCreationAttributes extends Optional<entities.IUserId, 'id'> { }
 
@@ -21,8 +21,8 @@ User.init({
         primaryKey: true
     },
     uuid: {
-        type: DataTypes.TEXT,
-        defaultValue: UUIDV4
+        type: DataTypes.UUID,
+        defaultValue: UUID
     },
     email: {
         type: DataTypes.TEXT,

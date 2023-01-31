@@ -24,6 +24,9 @@ const ChatRoomMain = () => {
 
   const guildList = useSelector<RootState, IGuildWtJoin[]>((state) => state.chat);
 
+  console.log("guild list :");
+  console.log(guildList)
+
   const fetchDataGuild = () => {
     guildNa
       .getAll()
@@ -69,12 +72,15 @@ const ChatRoomMain = () => {
 
   return (
     <Flex flexDirection={"row"} justifyContent={"flex-start"} height={"100vh"}>
+      {guildList &&
       <NavbarGuild
         setListGuild={setListGuild}
-        listGuild={listGuild}
+        listGuild={guildList}
         setGuildSelect={setGuildSelect}
         guildSelect={guildSelect ?? ""}
       />
+      }
+      {/*
       <NavbarRoomList
         listRoom={listRoom}
         roomSelect={roomSelect}
@@ -82,8 +88,10 @@ const ChatRoomMain = () => {
         setListRoom={setListRoom}
         guildRoomId={id}
       />
+      
       {roomSelect > -1 && <RoomView idRoom={listRoom[roomSelect].id} />}
-    </Flex>
+  */}
+      </Flex>
   );
 };
 

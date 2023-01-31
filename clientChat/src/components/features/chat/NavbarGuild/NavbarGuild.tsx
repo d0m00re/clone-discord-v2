@@ -18,6 +18,9 @@ const NavbarGuild = (props: INavbarGuild) => {
   const revStateModalCreateGuild = () => {
     setModalCreateGuild((old) => !old);
   };
+  console.log("-----");
+  console.log(props.listGuild)
+  console.log( props?.listGuild?.length)
   return (
     <>
       <Flex
@@ -27,7 +30,7 @@ const NavbarGuild = (props: INavbarGuild) => {
         backgroundColor="black"
         height="inherit"
       >
-        {props.listGuild.map((elem) => (
+        {props?.listGuild && props?.listGuild?.length  && props?.listGuild?.map((elem) => (
           <CardGuild
             key={elem.id}
             name={elem.title}

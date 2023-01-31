@@ -9,8 +9,18 @@ export const initialState = utilsUser.makeEmptyUserId();
 const UserReducer = (state = initialState, action: actionsUser.Actions) => {
   switch (action.type) {
     case C_USER.SET_ALL_ELEM:
+      return action.payload;
+
+    case C_USER.ADD_GUILD:
       return { ...action.payload };
-    
+
+    case C_USER.ADD_ROOM:
+      return { ...action.payload };
+
+    case C_USER.ADD_ROOM_ITEMS:
+      return { ...action.payload };
+
+
     default:
       return state;
   }
