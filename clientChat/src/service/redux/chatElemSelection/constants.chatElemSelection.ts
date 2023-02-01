@@ -1,0 +1,7 @@
+const SET_GUILD_UUID = "SET_GUILD_UUID";
+const SET_ROOM_UUID = "SET_ROOM_UUID";
+
+export {
+    SET_GUILD_UUID,
+    SET_ROOM_UUID
+} 

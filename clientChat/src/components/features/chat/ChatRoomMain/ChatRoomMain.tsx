@@ -80,7 +80,8 @@ const ChatRoomMain = () => {
         guildSelect={guildSelect ?? ""}
       />
       }
-      {/*
+      <p>guildSelect : {guildSelect}</p>
+      {guildSelect &&
       <NavbarRoomList
         listRoom={listRoom}
         roomSelect={roomSelect}
@@ -88,9 +89,10 @@ const ChatRoomMain = () => {
         setListRoom={setListRoom}
         guildRoomId={id}
       />
+      }
       
       {roomSelect > -1 && <RoomView idRoom={listRoom[roomSelect].id} />}
-  */}
+  
       </Flex>
   );
 };

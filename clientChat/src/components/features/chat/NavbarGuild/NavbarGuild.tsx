@@ -18,9 +18,7 @@ const NavbarGuild = (props: INavbarGuild) => {
   const revStateModalCreateGuild = () => {
     setModalCreateGuild((old) => !old);
   };
-  console.log("-----");
-  console.log(props.listGuild)
-  console.log( props?.listGuild?.length)
+  
   return (
     <>
       <Flex
