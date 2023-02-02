@@ -7,6 +7,8 @@ const ADD_GUILD = "ADD_GUILD";
 const ADD_ROOM = "ADD_ROOM";
 const ADD_ROOM_ITEMS = "ADD_ROOM_ITEMS";
 
+const PUSH_GUILD = "PUSH_GUILD";
+
 export {
     SET_ALL_ELEM,
     SET_ALL_GUILD,
@@ -15,5 +17,7 @@ export {
 
     ADD_GUILD,
     ADD_ROOM,
-    ADD_ROOM_ITEMS
+    ADD_ROOM_ITEMS,
+
+    PUSH_GUILD
 }

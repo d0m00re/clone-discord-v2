@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 import * as guildType from "./../../../../service/networkAdapter/chat/guild/guild.entities";
 
 type Props = {
-  setListGuild: React.Dispatch<React.SetStateAction<guildType.IGuildId[]>>;
+  setListGuild: (guild : guildType.IGuildId) => {};
   onRevStateModal: () => void;
   isModalOpen: boolean;
 };
@@ -21,7 +21,7 @@ function ModalCreateGuild(props: Props) {
     naGuild
       .createOne(data)
       .then((resp) => {
-        props.setListGuild((old) => [...old, resp.data.data]);
+        props.setListGuild(resp.data.data);
         toast("success create room");
         props.onRevStateModal();
       })

@@ -4,7 +4,7 @@ import * as C_USER from "./constants.chat";
 
 //export const initialState : types.IMe = utils.makeEmptyUser();
 
-export const initialState = utilsUser.makeEmptyUserId();
+export const initialState = [];
 
 const UserReducer = (state = initialState, action: actionsUser.Actions) => {
   switch (action.type) {
@@ -19,6 +19,12 @@ const UserReducer = (state = initialState, action: actionsUser.Actions) => {
 
     case C_USER.ADD_ROOM_ITEMS:
       return { ...action.payload };
+
+    case C_USER.PUSH_GUILD:
+      return [
+        ...state,
+        action.payload
+      ]
 
 
     default:

@@ -35,9 +35,17 @@ export const setAllElem = (payload : entityChat.IGuildWtJoin) => {
     };
   };
 
+  export const pushGuild = (payload : entityChat.entityGuild.IGuildId) => {
+    return {
+      type : contants.PUSH_GUILD,
+      payload : payload
+    }
+  }
+
   export type Actions = ReturnType<
     typeof setAllElem |
     typeof setAllGuild |
     typeof setAllRoom |
-    typeof setAllRoomItems
+    typeof setAllRoomItems |
+    typeof pushGuild
   >
